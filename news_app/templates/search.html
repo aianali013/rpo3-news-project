@@ -16,17 +16,11 @@
              <div class="news-block__adv">
                  <h3>Advertising</h3>
                  <div class="news-adv__card">
-                   <div class="news-adv__card">
-
-                     <img src="https://tb-static.uber.com/prod/image-proc/processed_images/6ce79b1a63a43a0939d48dcec6b89d75/d9be3fc772fc6c0fd6b3471e291aa823.jpeg" alt="Popeys" class="news-adv__img">
-
-                     <img src="https://static-cse.canva.com/blob/584512/ar2009brand.jpg" alt="ozone" class="news-adv__img">
-
-                     <img src="https://cdn.nur.kz/images/1200x675/7e64e998b5569d92.jpeg?version=1" alt="Kaspi" class="news-adv__img">
-
-                     <img src="https://i.pinimg.com/originals/b0/1c/32/b01c32875518c427e12fa09e3de31f5a.png" alt="Coca-cola" class="news-adv__img">
-
-                 </div>
+                    {% for adv in advs %}
+                        <img src="{{ adv.image_url }}"
+                             alt="{{ adv.name }}"
+                             class="news-adv__img">
+                    {% endfor %}
                  </div>
              </div>
          </div>

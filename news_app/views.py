@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
-from .models import Category, Post,Adv
+from .models import Category, Post, Adv
 
 
 def home_page(request):
@@ -53,7 +53,15 @@ def search_results(request):
 
 def read_news_page(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
     random_posts = Post.objects.exclude(pk=pk).order_by('?')[:4]
+
     advs = Adv.objects.order_by('?')[:4]
-    return render(request, 'read-news.html', {'post': post})
+
+    context = {
+        'post': post,
+        'related_posts': random_posts,
+        'advs': advs,
+    }
+    return render(request, "read-news.html", context)
 
