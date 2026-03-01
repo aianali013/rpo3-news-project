@@ -3,6 +3,8 @@
 {% block title%} Home page {% endblock%}
 
 {% block content%}
+
+{% load static %}
 <section class="hot_news" xmlns="http://www.w3.org/1999/html">
            <div class="container-fluid">
                <h1>Hot news today</h1>
@@ -39,7 +41,9 @@
                  <h3>Advertising</h3>
                  <div class="news-adv__card">
                      {% for adv in advs %}
-                     <img src="{{ adv.image_url }}" alt="{{ adv.name }}" class="news-adv__img">
+                     <img src="{{ adv.image_url }}"
+                          alt="{{ adv.name }}"
+                          class="news-adv__img">
                      {% endfor %}
                  </div>
              </div>

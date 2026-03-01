@@ -1,5 +1,6 @@
 {% load static %}
-<!doctype html>
+
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title%} {% endblock%}</title>
-    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 <header class="header">
@@ -21,13 +22,13 @@
             </nav>
             <nav>
                 <a href="#">
-                    <img src="{% static './img/Theadrs.svg' %)" alt="">
+                    <img src="{% static 'img/Theadrs.svg' %)" alt="">
                 </a>
                 <a href="#">
-                     <img src="{% static './img/telega.svg' %)" alt="">
+                     <img src="{% static 'img/telega.svg' %)" alt="">
                 </a>
                  <a href="#">
-                     <img src="{% static './img/inst.svg' %}" alt="">
+                     <img src="{% static 'img/inst.svg' %}" alt="">
                 </a>
             </nav>
         </div>
@@ -37,14 +38,14 @@
         <div class="secondary-header">
             <div class="container-fluid">
                 <a href="{% url 'admin:index'%}">
-                    <img src="{%static './img/Profile.svg' %}" alt="">
+                    <img src="{%static 'img/Profile.svg' %}" alt="">
                     <span>Login</span>
                 </a>
                 <a href="#" class="logo">
-                    <img src="{%static './img/logo.svg' %}" alt="">
+                    <img src="{%static 'img/logo.svg' %}" alt="">
                 </a>
                 <a href="#">
-                    <img src="{%static './img/Phone.svg' %}" alt="">
+                    <img src="{%static 'img/Phone.svg' %}" alt="">
                     <span> +7 777 123 45 67</span>
                 </a>
             </div>
@@ -60,6 +61,13 @@
                      <a href="{% url 'news_by_category' pk=category.pk %}">{{ category.name }}</a>
                      {% endfor %}
                  </nav>
+                 <div id="ad-section">
+                {% if global_ad %}
+                 <a href="{{ global_ad.link }}">
+              <img src="{{ global_ad.image_url }}" alt="{{ global_ad.title }}">
+        </a>
+             {% endif %}
+</div>
                  <a href="{% url 'search_page' %}">
                      <img src="{% static './img/search.svg' %}" alt="">
                      <span>Search</span>

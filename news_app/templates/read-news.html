@@ -16,8 +16,11 @@
              <div class="news-block__adv">
                  <h3>Advertising</h3>
                  <div class="news-adv__card">
-                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
-                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
+                    {% for adv in advs %}
+                        <img src="{{ adv.image_url }}"
+                             alt="{{ adv.name }}"
+                             class="news-adv__img">
+                    {% endfor %}
                  </div>
              </div>
          </div>

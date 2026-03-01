@@ -53,4 +53,7 @@ def search_results(request):
 
 def read_news_page(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    random_posts = Post.objects.exclude(pk=pk).order_by('?')[:4]
+    advs = Adv.objects.order_by('?')[:4]
     return render(request, 'read-news.html', {'post': post})
+
