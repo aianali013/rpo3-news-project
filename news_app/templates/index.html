@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%} Home page {% endblock%}
+
+{% block content%}
+<section class="hot_news" xmlns="http://www.w3.org/1999/html">
+           <div class="container-fluid">
+               <h1>Hot news today</h1>
+               <div class="hot-news-grid">
+                   {% for hot_posts in hot_posts %}
+                   <a href="#" class="hot-news__item" style="background: linear-gradient(rgba(0,0,0,0.33),rgba(0,0,0,0.33)), url('{{ hot_posts.image_url }}'); background-size: cover;">
+                       <h3> {{ hot_posts.title| truncatewords:7 }}</h3>
+                       <span>{{ hot_posts.created_at|date:"d.m.Y"}}</span>
+                   </a>
+                    {% endfor %}
+               </div>
+           </div>
+       </section>
+     <section class="news-block">
+         <div class="container-fluid">
+             <div class="news-block__content">
+                 <h3>All news</h3>
+                 {% for post in posts %}
+                 <div class="news-block__card">
+                     <img src="{{ post.image_url }}"
+                          alt="{{ post.title }}" class="news-block__img">
+                     <div class="news-block__info">
+                         <h3>{{ post.title|truncatewords:5 }}</h3>
+                         <span>{{ post.created_at|date:"d.m.Y" }}</span>
+                         <a href="#">{{ post.category.name }}</a>
+                         <p> {{ post.description|truncatewords:30 }}</p>
+                         <a href="#">READ</a>
+                     </div>
+                     </div>
+                 {% endfor %}
+                 </div>
+
+             <div class="news-block__adv">
+                 <h3>Advertising</h3>
+                 <div class="news-adv__card">
+                     {% for adv in advs %}
+                     <img src="{{ adv.image_url }}" alt="{{ adv.name }}" class="news-adv__img">
+                     {% endfor %}
+                 </div>
+             </div>
+          </div>
+         <div class="text-center">
+             <a href="#" class="primary-text">See all</a>
+         </div>
+     </section>
+{% endblock %}

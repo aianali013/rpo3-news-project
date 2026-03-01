@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock%}
+
+{% block content %}
+<section class="news-block">
+         <div class="container-fluid">
+             <div class="news-block__content">
+                 <h3>Search</h3>
+                 <form action="{% url 'search-results' %}" method="get">
+                     <label for="search">Enter news title or description</label>
+                     <input  id="search"  name="q" type="text" placeholder="Title or Description" required>
+                     <button type="submit">Search</button>
+                 </form>
+             </div>
+             <div class="news-block__adv">
+                 <h3>Advertising</h3>
+                 <div class="news-adv__card">
+                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
+                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
+                 </div>
+             </div>
+         </div>
+     </section>
+
+{% endblock %}

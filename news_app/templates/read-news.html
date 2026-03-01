@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock%}
+
+{% block content %}
+
+ <section class="news-block">
+         <div class="container-fluid">
+             <div class="news-block__content">
+                 <h3 class="mb-10">{{ post.title }}</h3>
+              <p class="mb-15">{{ post.created_at|date:"d.m.Y"}}</p>
+                 <img src="{{ post.image_url}}" alt="" class="rounded-full-img">
+             <p class="mb-15">{{ post.description }}</p>
+                 <a href="#">{{ post.category.name }}</a>
+             </div>
+             <div class="news-block__adv">
+                 <h3>Advertising</h3>
+                 <div class="news-adv__card">
+                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
+                     <img src="https://th.bing.com/th/id/R.0baef5694dd8b328379afa1aba60b816?rik=O4Qa0%2brB3MHNWA&pid=ImgRaw&r=0" alt="" class="news-adv__img">
+                 </div>
+             </div>
+         </div>
+     </section>
+{% endblock %}

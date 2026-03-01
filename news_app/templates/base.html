@@ -1,0 +1,85 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title%} {% endblock%}</title>
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+</head>
+<body>
+<header class="header">
+    <div class="primary-header">
+        <div class="container">
+            <nav>
+                <a href="#">Home</a>
+                 <a href="#">About</a>
+                 <a href="#">FAQ</a>
+                 <a href="#">Contact us</a>
+            </nav>
+            <nav>
+                <a href="#">
+                    <img src="{% static './img/Theadrs.svg' %)" alt="">
+                </a>
+                <a href="#">
+                     <img src="{% static './img/telega.svg' %)" alt="">
+                </a>
+                 <a href="#">
+                     <img src="{% static './img/inst.svg' %}" alt="">
+                </a>
+            </nav>
+        </div>
+    </div>
+
+<div class="container">
+        <div class="secondary-header">
+            <div class="container-fluid">
+                <a href="{% url 'admin:index'%}">
+                    <img src="{%static './img/Profile.svg' %}" alt="">
+                    <span>Login</span>
+                </a>
+                <a href="#" class="logo">
+                    <img src="{%static './img/logo.svg' %}" alt="">
+                </a>
+                <a href="#">
+                    <img src="{%static './img/Phone.svg' %}" alt="">
+                    <span> +7 777 123 45 67</span>
+                </a>
+            </div>
+        </div>
+    </div>
+     <div class="container">
+         <div class="third-header">
+             <div class="container-fluid">
+                 <nav>
+                     <a href="{% url 'all_news_page' %}"> All news</a>
+                     <!--Backend-->
+                     {% for category in categories %}
+                     <a href="{% url 'news_by_category' pk=category.pk %}">{{ category.name }}</a>
+                     {% endfor %}
+                 </nav>
+                 <a href="{% url 'search_page' %}">
+                     <img src="{% static './img/search.svg' %}" alt="">
+                     <span>Search</span>
+                 </a>
+             </div>
+         </div>
+     </div>
+    </header>
+
+   <main class="container">
+       {% block content%}
+       {% endblock %}
+   </main>
+  <footer class="footer">
+      <div class="container">
+          <a href="#">
+              <img src="{% static './img/logo-white.svg' %}" alt="">
+          </a>
+          <p>&copy; 2026 TOO Qaznews. All rights reserved</p>
+      </div>
+  </footer>
+</body>
+</html>
